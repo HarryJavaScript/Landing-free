@@ -183,8 +183,16 @@ h5 {
     border-left-color: #5e81ff; }
 
 .section-customers .section-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-top: 60px;
   padding-bottom: 60px; }
+  .section-customers .section-inner a {
+    opacity: .3;
+    transition: 0.2s; }
+    .section-customers .section-inner a:hover {
+      opacity: 1; }
 
 .section-plan-and-manage {
   background-color: #f5f8ff; }

@@ -296,8 +296,20 @@ h5 {
 // === CUSTOMERS ===
 .section-customers {
   .section-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-top: $padding-vertical_small;
     padding-bottom: $padding-vertical_small;
+
+    a {
+        opacity: .3;
+        transition: $transition;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
   }
 }
 // === /CUSTOMERS ===
