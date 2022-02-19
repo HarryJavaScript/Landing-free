@@ -71,11 +71,12 @@ body {
   margin: 0;
   font-size: $fs-small;
   font-weight: $fw-bold;
-  background-color: none;
+  background: none;
   text-decoration: none;
   border-radius: 2px;
-  border: 0;
+  border: 1px solid transparent;
   transition: $transition;
+  box-sizing: border-box;
 
   &--primary {
     color: #3a79ff;
@@ -85,8 +86,41 @@ body {
         background-color: darken(#d2e1ff, 5%);
     }
   }
+
+  &--secondary {
+    color: #fff;
+    background-color: #4c85ff;
+
+    &:hover {
+        background-color: darken(#4c85ff, 5%);
+    }
+  }
+
+  &--without-background {
+    color: #adb4d2;
+    border: 1px solid #d1d1e4;
+
+    &:hover {
+        color: darken(#adb4d2, 10%);
+        border: 1px solid darken(#d1d1e4, 10%);
+    }
+  }
 }
 
+.buttons-group {
+    display: inline-flex;
+    
+    .button:nth-child(1) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .button:nth-child(2) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    
+}
 
 // === /COMMON ===
 
@@ -185,7 +219,10 @@ h2 {
     margin-bottom: $base * 7;
     font-size: 48px;
 }
-h3 { font-size: 36px; }
+h3 {
+    font-size: 36px;
+    margin-bottom: $base * 7;
+}
 h4 { font-size: 24px; }
 
 h5 { 
@@ -221,7 +258,6 @@ h5 {
             margin-left: $base * 3;
         }
     }
-
 }
 // === /HEADER ===
 
@@ -253,6 +289,7 @@ h5 {
       &-content {
           h2 {
               font-weight: $fw-light;
+              
               span {
                 font-weight: $fw-medium;
               }
@@ -278,17 +315,9 @@ h5 {
     border-radius: 100%;
     box-shadow: 0 10px 50px rgba(#c9d1e7, .6);
 
-    &::before {
-        display: block;
-        width: 0;
-        height: 0;
-        margin-left: $base * 4;
-        content: '';
-        border-color: transparent;
-        border-style: solid;
-        border-width: $base*2 $base*3;
-        border-radius: 10%;
-        border-left-color: #5e81ff;
+    svg {
+        width: $base * 3;
+        height: $base * 3;
     }
 }
 // === /HERO-IMAGE ===
@@ -316,7 +345,38 @@ h5 {
 
 // === PLAN-AND-MANAGE ===
 .section-plan-and-manage {
-  background-color: #f5f8ff;
+    position: relative;
+    background-color: #f5f8ff;
+    overflow: hidden;
+
+  &__content {
+    width: 50%;
+
+    .aside-image {
+        position: absolute;
+        top: 0;
+        left: 50%;
+    }
+
+    h3 {
+        font-weight: $fw-light;
+
+        span {
+          font-weight: $fw-medium;
+        }
+    }
+
+    .text {
+        margin-bottom: $base * 12;
+        line-height: 2;
+    }
+
+    .buttons-group {
+        svg {
+            margin-left: $base;
+        }
+    }
+  }
 }
 // === /PLAN-AND-MANAGE ===
 
