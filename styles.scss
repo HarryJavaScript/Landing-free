@@ -87,6 +87,15 @@ body {
     }
   }
 
+  &--warning {
+    color: #d43f3f;
+    background-color: #ffd7d7;
+
+    &:hover {
+        background-color: darken(#ffd7d7, 5%);
+    }
+  }
+
   &--secondary {
     color: #fff;
     background-color: #4c85ff;
@@ -223,7 +232,10 @@ h3 {
     font-size: 36px;
     margin-bottom: $base * 7;
 }
-h4 { font-size: 24px; }
+h4 { 
+    font-size: 24px;
+    margin-bottom: $base * 20;
+ }
 
 h5 { 
     @include roboto;
@@ -382,6 +394,92 @@ h5 {
 
 // FEATURES
 .section-features {
+  background: url(./images/clouds_features_bg.svg) no-repeat 50% 50%;
+  h4 {
+    font-weight: $fw-medium;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    // text-align: center;
+  }
+}
+
+.features-list {
+  display: flex;
+  padding: 0;
+  margin: 0 0 $base*25;
+  text-align: center;
+  list-style: none;
+
+  &__item {
+    position: relative;
+    flex-basis: 25%;
+
+    &:not(:first-child) {
+      margin-left: $base * 10;
+    }
+
+    &:not(:first-child)::before {
+      position: absolute;
+      top: 120px;
+      left: -34px;
+      width: 28px;
+      height: 1px;
+      content: '';
+      background-color: #dae4fe;
+    }
+
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto $base*8;
+      width: $base * 17;
+      height: $base * 17;
+      border-radius: 100%;
+      background-color: #f1f5ff;
+    }
+
+    &-title {
+      font-style: $fs-midlle;
+      font-weight: $fw-bold;
+      color: #4074f8;
+      margin-bottom: $base * 7;
+    }
+
+    &-text {
+      line-height: 2;
+    }
+  }
+}
+
+.or-block {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 $base*4;
+  font-weight: $fw-medium;
+  font-size: $fs-small;
+  line-height: $base * 10;
+
+  &::before,
+  &::after {
+    display: block;
+    width: $base * 4;
+    height: 1px;
+    content: '';
+    background-color: #dae4fe;
+  }
+
+  &::before {
+    margin-right: $base*4;
+  }
+  
+  &::after {
+    margin-left: $base*4;
+  }
 }
 
 // STATS

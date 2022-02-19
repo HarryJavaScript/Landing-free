@@ -41,6 +41,11 @@ body {
     background-color: #d2e1ff; }
     .button--primary:hover {
       background-color: #b9d0ff; }
+  .button--warning {
+    color: #d43f3f;
+    background-color: #ffd7d7; }
+    .button--warning:hover {
+      background-color: #ffbebe; }
   .button--secondary {
     color: #fff;
     background-color: #4c85ff; }
@@ -127,7 +132,8 @@ h3 {
   margin-bottom: 28px; }
 
 h4 {
-  font-size: 24px; }
+  font-size: 24px;
+  margin-bottom: 80px; }
 
 h5 {
   font-family: "Roboto", sans-serif;
@@ -227,6 +233,69 @@ h5 {
       line-height: 2; }
     .section-plan-and-manage__content .buttons-group svg {
       margin-left: 4px; }
+
+.section-features {
+  background: url(./images/clouds_features_bg.svg) no-repeat 50% 50%; }
+  .section-features h4 {
+    font-weight: 500; }
+  .section-features .buttons {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto; }
+
+.features-list {
+  display: flex;
+  padding: 0;
+  margin: 0 0 100px;
+  text-align: center;
+  list-style: none; }
+  .features-list__item {
+    position: relative;
+    flex-basis: 25%; }
+    .features-list__item:not(:first-child) {
+      margin-left: 40px; }
+    .features-list__item:not(:first-child)::before {
+      position: absolute;
+      top: 120px;
+      left: -34px;
+      width: 28px;
+      height: 1px;
+      content: '';
+      background-color: #dae4fe; }
+    .features-list__item-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      width: 68px;
+      height: 68px;
+      border-radius: 100%;
+      background-color: #f1f5ff; }
+    .features-list__item-title {
+      font-style: 15px;
+      font-weight: 700;
+      color: #4074f8;
+      margin-bottom: 28px; }
+    .features-list__item-text {
+      line-height: 2; }
+
+.or-block {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 16px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 40px; }
+  .or-block::before, .or-block::after {
+    display: block;
+    width: 16px;
+    height: 1px;
+    content: '';
+    background-color: #dae4fe; }
+  .or-block::before {
+    margin-right: 16px; }
+  .or-block::after {
+    margin-left: 16px; }
 
 .section-stats {
   background-color: #e9efff; }
