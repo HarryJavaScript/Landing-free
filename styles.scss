@@ -19,6 +19,8 @@ $fw-bold: 700;
 
 $fs-small: 12px;
 $fs-midlle: 15px;
+$fs-large: 18px;
+$fs-Xlarge: 48px;
 
 $padding-vertical: $base * 30;
 $padding-vertical_small: $base * 15;
@@ -476,7 +478,7 @@ h5 {
   &::before {
     margin-right: $base*4;
   }
-  
+
   &::after {
     margin-left: $base*4;
   }
@@ -485,10 +487,45 @@ h5 {
 // STATS
 .section-stats {
   background-color: #e9efff;
+  display: flex;
 
-  .section-inner {
-    padding-top: $padding-vertical_small;
-    padding-bottom: $padding-vertical_small;
+  &__icon {
+    margin-bottom: $base * 6;
+  }
+
+  &__number {
+    @include quicksand;
+
+    margin-bottom: $base * 7;
+    font-size: $fs-Xlarge;
+  }
+  &__text {
+    @include quicksand;
+
+    width: 40%;
+    // width: 30%;
+    font-size: $fs-large;
+    font-weight: $fw-medium;
+    line-height: 1.5;
+  }
+
+  &__left, 
+  &__right {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    padding: $base*16 $base*22;
+  }
+
+  &__left {
+    background-color: #5e80ff;
+    text-align: right;
+    color: #fff;
+    align-items: flex-end;
+  }
+
+  &__right {
+    color: #5e80ff;
   }
 }
 // BLOG
