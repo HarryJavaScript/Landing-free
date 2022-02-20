@@ -112,6 +112,15 @@ body {
     &:hover {
       background-color: darken(#4c85ff, 5%);
     }
+
+    &-inverted {
+      color: #565f82;
+      background-color: #fff;
+    
+    &:hover {
+      background-color: darken(#fff, 10%);
+      }
+    }
   }
 
   &--grayscale {
@@ -130,6 +139,16 @@ body {
     &:hover {
       color: darken(#adb4d2, 10%);
       border: 1px solid darken(#d1d1e4, 10%);
+    }
+
+    &-inverted {
+      color: #c7d3ff;
+      border-color: #a0b4ff;
+    
+    &:hover {
+      color: lighten(#c7d3ff, 10%);
+      border-color: lighten(#a0b4ff, 5%);
+      }
     }
   }
 }
@@ -326,8 +345,8 @@ h5 {
       }
 
       .text {
-        width: 60%;
-        margin: 0 auto $base * 5;
+        max-width: 60%;
+        margin: 0 auto $base*5;
         line-height: 2;
       }
     }
@@ -453,7 +472,7 @@ h5 {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto $base * 8;
+      margin: 0 auto $base*8;
       width: $base * 17;
       height: $base * 17;
       border-radius: 100%;
@@ -816,8 +835,48 @@ h5 {
 
 // GET-STARTED
 .section-get-started {
-  background-color: #6888ff;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(#6888ff, #5e80ff);
+
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    background: url(./images/clouds_get-started_bg.svg) no-repeat 50% 50%;
+    content: '';
+  }
+
+  .section-inner {
+    position: relative;
+    z-index: 10;
+  }
+  
+  h2,
+  h5 {
+    color: #fff;
+  }
+
+  h2 {
+    font-weight: $fw-light;
+
+    span {
+      font-weight: $fw-medium;
+    }
+  }
+
+  .text {
+    max-width: 60%;
+    margin: 0 auto $base*10;
+    line-height: 2;
+  }
 }
+
 
 // NEWSLETTER
 .section-newsletter {

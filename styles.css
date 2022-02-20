@@ -53,6 +53,11 @@ body {
     background-color: #4c85ff; }
     .button--secondary:hover {
       background-color: #3374ff; }
+    .button--secondary-inverted {
+      color: #565f82;
+      background-color: #fff; }
+      .button--secondary-inverted:hover {
+        background-color: #e6e6e6; }
   .button--grayscale {
     color: #7382a3;
     background-color: #e8ecf4; }
@@ -64,6 +69,12 @@ body {
     .button--without-background:hover {
       color: #8c96c0;
       border: 1px solid #b1b1d1; }
+    .button--without-background-inverted {
+      color: #c7d3ff;
+      border-color: #a0b4ff; }
+      .button--without-background-inverted:hover {
+        color: #fafbff;
+        border-color: #bac8ff; }
 
 .buttons-group {
   display: inline-flex; }
@@ -198,7 +209,7 @@ h5 {
       .slider-hero-image__item-content h2 span {
         font-weight: 500; }
     .slider-hero-image__item-content .text {
-      width: 60%;
+      max-width: 60%;
       margin: 0 auto 20px;
       line-height: 2; }
 
@@ -514,7 +525,33 @@ h5 {
         margin-left: 60px; }
 
 .section-get-started {
-  background-color: #6888ff; }
+  position: relative;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(#6888ff, #5e80ff); }
+  .section-get-started::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    background: url(./images/clouds_get-started_bg.svg) no-repeat 50% 50%;
+    content: ''; }
+  .section-get-started .section-inner {
+    position: relative;
+    z-index: 10; }
+  .section-get-started h2,
+  .section-get-started h5 {
+    color: #fff; }
+  .section-get-started h2 {
+    font-weight: 300; }
+    .section-get-started h2 span {
+      font-weight: 500; }
+  .section-get-started .text {
+    max-width: 60%;
+    margin: 0 auto 40px;
+    line-height: 2; }
 
 .section-newsletter {
   background-color: #fcfdff; }
