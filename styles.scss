@@ -69,8 +69,24 @@ body {
 }
 
 .get-button {
-  margin-left: $base * 11;
+  margin-left: $base * 6;
 }
+
+.input {
+  padding: $base*3 $base*4;
+  font-size: $fs-small;
+  background: #efeff7;
+  color: #7a85ad;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  
+  &--size-large {
+    padding: $base*5 $base*6;
+    border-radius: 5px;
+  }
+
+}
+
 .button {
   @include quicksand;
 
@@ -82,10 +98,16 @@ body {
   font-weight: $fw-bold;
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
   background: none;
   border: 1px solid transparent;
   border-radius: 2px;
   transition: $transition;
+
+  &--size-large {
+    padding: $base*5 $base*15;
+    border-radius: 5px;
+  }
 
   &--primary {
     color: #3a79ff;
@@ -881,6 +903,45 @@ h5 {
 // NEWSLETTER
 .section-newsletter {
   background-color: #fcfdff;
+
+  .section-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left {
+    flex-basis: 35%;
+
+  &-title {
+    @include quicksand;
+
+    font-size: $fs-large;
+    font-weight: $fw-bold;
+    color: #3d4f9f;
+    margin-bottom: $base * 5;
+  }
+
+  &-text {
+    font-size: $fs-midlle;
+    line-height: 2;
+    }
+  }
+
+  &__right {
+    flex-basis: 55%;
+  }
+}
+
+.form-newsletter {
+  display: flex;
+
+  &__input {
+    flex-grow: 1;
+  }
+
+  &__button {
+    margin-left: $base * 3;
+  }
 }
 
 // === FOOTER ===
