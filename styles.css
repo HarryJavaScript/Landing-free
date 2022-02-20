@@ -115,7 +115,12 @@ body {
   .socials-wrapper__item-link:hover path {
     fill: #6188ff; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Quicksand", sans-serif;
   margin: 0;
   padding: 0;
@@ -209,7 +214,7 @@ h5 {
   padding-top: 60px;
   padding-bottom: 60px; }
   .section-customers .section-inner a {
-    opacity: .3;
+    opacity: 0.3;
     transition: 0.2s; }
     .section-customers .section-inner a:hover {
       opacity: 1; }
@@ -261,7 +266,7 @@ h5 {
       left: -34px;
       width: 28px;
       height: 1px;
-      content: '';
+      content: "";
       background-color: #dae4fe; }
     .features-list__item-icon {
       display: flex;
@@ -291,7 +296,7 @@ h5 {
     display: block;
     width: 16px;
     height: 1px;
-    content: '';
+    content: "";
     background-color: #dae4fe; }
   .or-block::before {
     margin-right: 16px; }
@@ -380,8 +385,8 @@ h5 {
           right: 0;
           bottom: 0;
           left: 0;
-          opacity: .7;
-          content: ''; }
+          opacity: 0.7;
+          content: ""; }
         .slider-blog__item-gallery .image-link--big {
           grid-row: 1 / 3;
           grid-column: 1 / 3; }
@@ -421,7 +426,43 @@ h5 {
     transform: translateY(-50%) rotate(180deg); }
 
 .section-quotes {
-  background-color: #eaf0ff; }
+  background: linear-gradient(#eaebff, #f6f9ff); }
+  .section-quotes .section-inner {
+    display: flex;
+    justify-content: space-between; }
+    .section-quotes .section-inner h3 {
+      font-weight: 500; }
+  .section-quotes__left, .section-quotes__right {
+    flex-basis: 45%; }
+  .section-quotes__left .text {
+    line-height: 2; }
+
+.slider-quotes {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  margin-bottom: 80px; }
+  .slider-quotes__item {
+    position: relative;
+    padding: 40px 68px 60px;
+    background-color: #fff;
+    border: 1px solid #d8e3fe;
+    box-shadow: 0 5px 50px #f3f5fa; }
+    .slider-quotes__item-text {
+      font-size: 15px;
+      line-height: 2;
+      color: #676f95; }
+    .slider-quotes__item-photo {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      background-color: #fff;
+      border-radius: 100%;
+      transform: translateX(-50%);
+      margin-top: -30px; }
 
 .section-get-started {
   background-color: #6888ff; }
