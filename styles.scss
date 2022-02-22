@@ -14,19 +14,44 @@
   margin: 0;
   list-style: none;
 }
+// === // MIXIN ===
+
+
+// === FUNCTIONS ===
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function rem($num) {
+  @return (strip-unit($num) / 16) * 1rem;
+}
+// === // FUNCTIONS ===
+
 
 // === VARIABLES ===
-$base: 4px;
+$breakpoint-sm-min: 576px;
+$breakpoint-md-min: 768px;
+$breakpoint-lg-min: 992px;
+$breakpoint-xl-min: 1200px;
+$breakpoint-xxl-min: 1400px;
+$breakpoint-xs-max: $breakpoint-sm-min - 1px;
+$breakpoint-sm-max: $breakpoint-md-min - 1px;
+$breakpoint-md-max: $breakpoint-lg-min - 1px;
+$breakpoint-lg-max: $breakpoint-xl-min - 1px;
+$breakpoint-xl-min: $breakpoint-xxl-min - 1px;
+
+
+$base: rem(4px);
 
 $fw-light: 300;
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 
-$fs-small: 12px;
-$fs-midlle: 15px;
-$fs-large: 18px;
-$fs-Xlarge: 48px;
+$fs-small: rem(12px);
+$fs-midlle: rem(15px);
+$fs-large: rem(18px);
+$fs-Xlarge: rem(48px);
 
 $padding-vertical: $base * 30;
 $padding-vertical_small: $base * 15;
@@ -40,6 +65,16 @@ $color-secondary: #6188ff;
 // === /VARIABLES ===
 
 // === COMMON ===
+// html {
+//   @media (max-width: $breakpoint-md-max) {
+//     font-size: 14px;
+//   }
+
+//   @media (max-width: $breakpoint-sm-max) {
+//     font-size: 10px;
+//   }
+// }
+
 body {
   @include roboto;
   font-weight: $fw-regular;
@@ -49,6 +84,7 @@ body {
 
 .section-outer {
   border-bottom: 1px solid $color-divider;
+  padding: 0 $base*5;
 }
 
 .section-inner {
@@ -58,7 +94,7 @@ body {
   padding-bottom: $padding-vertical;
 
   &_wide {
-    min-width: 1200px;
+    max-width: 1200px;
   }
 }
 
@@ -273,6 +309,8 @@ h5 {
 
 // === HEADER ===
 .section-header {
+  position: relative;
+  
   .section-inner {
     padding-top: $padding-vertical_xs;
     padding-bottom: $padding-vertical_xs;
@@ -282,11 +320,82 @@ h5 {
 .main-navigation {
   display: flex;
   align-items: center;
+
+  &__inner-wrapper {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    margin-left: $base * 18;
+
+      .section-header & {
+        @media (max-width: $breakpoint-md-max) {
+          position: absolute;
+          display: none;
+          z-index: 10;
+          top: 100%;
+          right: 0;
+          left: 0;
+          margin-left: 0;
+          padding: $base * 5;
+          background-color: #fff;
+      }
+    }
+
+      @media (max-width: $breakpoint-md-max) {
+      flex-direction: column;
+
+      .socials,
+      .page-navigation {
+        margin-bottom: $base * 4;
+      }
+
+      &,
+      .socials,
+      .button-wrapper {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    .section-footer & {
+      flex-direction: column;
+
+      .logo {
+        @media (max-width: $breakpoint-md-max) {
+          margin-bottom: $base * 4;
+        
+        }
+      }
+    }
+  }
+
+  
 }
 
-.page-navigation {
-  margin-left: $base * 18;
+.button-burger {
+  display: none;
+  margin-left: auto;
+
+  &__line {
+    display: block;
+    height: $base / 2;
+    width: $base * 4;
+    background-color: #697ca6;
+
+    & + & {
+      margin-top: $base;
+    }
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    display: block;
+  }
 }
+
+// .page-navigation {
+  
+// }
 
 .navigation-wrapper {
   @include clean-list;
@@ -356,6 +465,7 @@ h5 {
 .section-hero-image {
   position: relative;
   background-color: #f4f7ff;
+  padding: 0;
 
   .dots {
     position: absolute;
@@ -438,7 +548,7 @@ h5 {
   overflow: hidden;
 
   &__content {
-    width: 50%;
+    width: 60%;
 
     .aside-image {
       position: absolute;
@@ -464,13 +574,18 @@ h5 {
         margin-left: $base;
       }
     }
+
+    @media (min-width: $breakpoint-lg-min) {
+      width: 50%;
+    }
   }
 }
-// === /PLAN-AND-MANAGE ===
+// === / PLAN-AND-MANAGE ===
 
 // FEATURES
 .section-features {
   background: url(./images/clouds_features_bg.svg) no-repeat 50% 50%;
+
   h4 {
     font-weight: $fw-medium;
   }
@@ -562,6 +677,7 @@ h5 {
 .section-stats {
   background-color: #e9efff;
   display: flex;
+  padding: 0;
 
   &__icon {
     margin-bottom: $base * 6;
@@ -576,11 +692,13 @@ h5 {
   &__text {
     @include quicksand;
 
-    width: 40%;
-    // width: 30%;
     font-size: $fs-large;
     font-weight: $fw-medium;
     line-height: 1.5;
+
+    @media (min-width: $breakpoint-lg-min) {
+      width: 40%;
+    }
   }
 
   &__left,
@@ -621,17 +739,13 @@ h5 {
 
   &__item {
     display: flex;
+    justify-content: space-between;
     padding: $base * 16 $base * 8;
-
-    &-gallery,
-    &-content {
-      flex-basis: 45%;
-    }
 
     &-gallery {
       display: grid;
-      grid-template-rows: repeat(2, $base * 30);
-      grid-template-columns: repeat(3, $base * 30);
+      grid-template-rows: repeat(2, $base*30);
+      grid-template-columns: repeat(3, $base*30);
       grid-gap: $base * 4;
 
       .image-link {
@@ -706,10 +820,18 @@ h5 {
           }
         }
       }
+
+      @media (max-width: $breakpoint-md-max) {
+        grid-template-rows: repeat(2, $base*25);
+        grid-template-columns: repeat(3, $base*25);
+      }
     }
 
+
+
     &-content {
-      margin-left: $base * 15;
+      flex-grow: 1;
+      margin-left: $base * 5;
     }
 
     .text {
@@ -738,6 +860,10 @@ h5 {
     left: 100%;
     margin-left: $base * 16;
     transform: translateY(-50%) rotate(180deg);
+  }
+
+  @media (max-width: $breakpoint-lg-max) {
+    display: none;
   }
 }
 
@@ -923,6 +1049,10 @@ h5 {
   .section-inner {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: $breakpoint-md-max) {
+      flex-direction: column;
+    }
   }
 
   &__left {
@@ -940,6 +1070,10 @@ h5 {
     &-text {
       font-size: $fs-midlle;
       line-height: 2;
+    }
+
+    @media (max-width: $breakpoint-md-max) {
+      margin-bottom: $base * 5;
     }
   }
 
@@ -977,5 +1111,10 @@ h5 {
   font-size: $fs-small;
   font-weight: $fw-medium;
   color: #aeb8d0;
+
+  @media (max-width: $breakpoint-md-max) {
+    margin-left: 0;
+    text-align: center;
+  }
 }
 // === /FOOTER ===
