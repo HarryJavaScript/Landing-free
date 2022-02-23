@@ -552,6 +552,19 @@ h5 {
         opacity: 1;
       }
     }
+
+    @media (max-width: $breakpoint-xs-max) {
+      flex-wrap: wrap;
+      justify-content: center;
+      // justify-content: flex-start; //TODO
+
+      a {
+        margin-top: $base * 2;
+        margin-bottom: $base * 2;
+        flex-basis: 45%;
+        text-align: center;
+      }
+    }
   }
 }
 // === /CUSTOMERS ===
@@ -593,6 +606,14 @@ h5 {
     @media (min-width: $breakpoint-lg-min) {
       width: 50%;
     }
+
+    @media (max-width: $breakpoint-xs-max) {
+      width: 70%;
+
+      .aside-image {
+        left: 35%;
+      }
+    }
   }
 }
 // === / PLAN-AND-MANAGE ===
@@ -620,26 +641,35 @@ h5 {
   margin: 0 0 $base * 25;
   text-align: center;
 
-  @media (max-width: $breakpoint-md-max) {
-  margin-bottom: $base * 15;
-}
-
-  &__item {
+  &__item { 
     position: relative;
     flex-basis: 25%;
 
-    &:not(:first-child) {
+    & + & {
       margin-left: $base * 10;
-    }
 
-    &:not(:first-child)::before {
-      position: absolute;
-      top: $base * 30;
-      left: -34px;
-      width: $base * 7;
-      height: 1px;
-      content: "";
-      background-color: #dae4fe;
+      // &:not(:first-child) {
+      //   margin-left: $base * 10;
+      // }
+  
+      &::before { //&:not(:first-child)::before 
+        position: absolute;
+        top: $base * 30;
+        left: -34px;
+        width: $base * 7;
+        height: 1px;
+        content: "";
+        background-color: #dae4fe;
+      }
+
+      @media (max-width: $breakpoint-xs-max) {
+        margin-bottom: $base * 10;
+        margin-left: 0;
+
+        &::before {
+          display: none;
+        }
+      }
     }
 
     &-icon {
@@ -663,6 +693,28 @@ h5 {
     &-text {
       line-height: 2;
     }
+
+    @media (max-width: $breakpoint-xs-max) {
+      flex-basis: 45%;
+
+      &-icon {
+        margin-bottom: $base * 3;
+      }
+
+      &-title {
+        margin-bottom: $base * 4;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    margin-bottom: $base * 15;
+  }
+  
+  @media (max-width: $breakpoint-xs-max) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: $base * 5;
   }
 }
 
@@ -726,6 +778,8 @@ h5 {
     flex-direction: column;
     flex-basis: 50%;
     padding: $base * 16 $base * 22;
+
+
   }
 
   &__left {
@@ -737,6 +791,13 @@ h5 {
 
   &__right {
     color: #5e80ff;
+  }
+
+  @media (max-width: $breakpoint-xs-max) {
+    &__left,
+    &__right {
+    padding: $base * 8 $base * 10;
+    }
   }
 }
 // BLOG
