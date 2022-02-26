@@ -59,12 +59,12 @@ $color-secondary: #6188ff;
 // === // VARIABLES ===
 
 // === COMMON ===
-
 body {
   @include roboto;
   font-weight: $fw-regular;
 
   color: #8d96bd;
+  padding-top: $base * 20;
 }
 
 .section-outer {
@@ -314,30 +314,55 @@ h5 {
 
   display: flex;
   justify-content: center;
-
-  &__item {
-    width: $base * 2;
-    height: $base * 2;
-    background-color: #d1d6e3;
-    border-radius: 100%;
-    transition: $transition;
-    cursor: pointer;
-
-    &--active {
-      background-color: #5283ff;
-    }
-
-    & + & {
-      margin-left: $base * 3;
-    }
-  }
 }
 
+.swiper-pagination-bullet {
+  width: $base * 2;
+  height: $base * 2;
+  background-color: #d1d6e3;
+  border-radius: 100%;
+  transition: $transition;
+  cursor: pointer;
+
+  &-active {
+    background-color: #5283ff;
+  }
+
+  & + & {
+    margin-left: $base * 3;
+  }
+}
 // === // COMMON ===
 
 // === HEADER ===
 .section-header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 12;
+  background-color: #fff;
+
+  &::before {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    content: "";
+  }
+
+  &--active-navigation {
+    &::before {
+      display: block;
+    }
+
+    .main-navigation__inner-wrapper {
+      display: flex;
+    }
+  }
 }
 
 .main-navigation {
@@ -345,16 +370,18 @@ h5 {
   align-items: center;
 
   &__inner-wrapper {
+    // свойства main-navigation__inner-wrapper находящийся в footer
     display: flex;
     flex-grow: 1;
     align-items: center;
     margin-left: $base * 18;
 
     .section-header & {
+      // свойства main-navigation__inner-wrapper находящийся в header
       @media (max-width: $breakpoint-md-max) {
         position: absolute;
         display: none;
-        z-index: 10;
+        z-index: 15;
         top: 100%;
         right: 0;
         left: 0;
@@ -482,7 +509,6 @@ h5 {
     }
   }
 }
-
 // === // HEADER ===
 
 // === HERO-IMAGE ===
@@ -494,8 +520,8 @@ h5 {
   .dots {
     position: absolute;
     bottom: $base * 7;
-    left: 50%;
-    transform: translateX(-50%);
+    // left: 50%;
+    // transform: translateX(-50%);
   }
 }
 

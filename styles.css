@@ -2,7 +2,8 @@
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  color: #8d96bd; }
+  color: #8d96bd;
+  padding-top: 5rem; }
 
 .section-outer {
   border-bottom: 1px solid #d8e3fe;
@@ -177,20 +178,39 @@ h5 {
   list-style: none;
   display: flex;
   justify-content: center; }
-  .dots__item {
-    width: 0.5rem;
-    height: 0.5rem;
-    background-color: #d1d6e3;
-    border-radius: 100%;
-    transition: 0.2s;
-    cursor: pointer; }
-    .dots__item--active {
-      background-color: #5283ff; }
-    .dots__item + .dots__item {
-      margin-left: 0.75rem; }
+
+.swiper-pagination-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #d1d6e3;
+  border-radius: 100%;
+  transition: 0.2s;
+  cursor: pointer; }
+  .swiper-pagination-bullet-active {
+    background-color: #5283ff; }
+  .swiper-pagination-bullet + .swiper-pagination-bullet {
+    margin-left: 0.75rem; }
 
 .section-header {
-  position: relative; }
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 12;
+  background-color: #fff; }
+  .section-header::before {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    content: ""; }
+  .section-header--active-navigation::before {
+    display: block; }
+  .section-header--active-navigation .main-navigation__inner-wrapper {
+    display: flex; }
 
 .main-navigation {
   display: flex;
@@ -204,7 +224,7 @@ h5 {
       .section-header .main-navigation__inner-wrapper {
         position: absolute;
         display: none;
-        z-index: 10;
+        z-index: 15;
         top: 100%;
         right: 0;
         left: 0;
@@ -292,9 +312,7 @@ h5 {
   padding: 0; }
   .section-hero-image .dots {
     position: absolute;
-    bottom: 1.75rem;
-    left: 50%;
-    transform: translateX(-50%); }
+    bottom: 1.75rem; }
 
 .slider-hero-image {
   padding: 0;
