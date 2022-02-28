@@ -7,13 +7,13 @@ RU
 HTML, CSS Sass, JavaScript, Swiper plugin |
 
 EN
-Typical commerce landing page |
+Typical product landing page |
 Some main sections |
 Adaptive Design, works correctly at 500px+ resolution |
 HTML, CSS Sass, JavaScript, Swiper plugin |
 
 DE
-Typische Commerce-Landingpage |
+Typische Produkt-Landingpage |
 Mehrere Hauptabschnitte |
 Adaptive Design, funktioniert korrekt bei einer Auflösung von 500px+ |
 HTML, CSS Sass, JavaScript, Swiper plugin |
