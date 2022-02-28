@@ -1,6 +1,6 @@
-# Landing-freeRU 
+# Landing-free
 
-Типовой коммерческий сайт | Несколько основных блоков | Адаптивная вёрстка, корректно работает на разрешении 500px+ | HTML, CSS Sass, JavaScript, Swiper plugin |
+RU Типовой коммерческий сайт | Несколько основных блоков | Адаптивная вёрстка, корректно работает на разрешении 500px+ | HTML, CSS Sass, JavaScript, Swiper plugin |
 
 EN Typical product landing page | Some main sections | Adaptive Design, works correctly at 500px+ resolution | HTML, CSS Sass, JavaScript, Swiper plugin |
 
