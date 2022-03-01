@@ -631,15 +631,9 @@ h5 {
     justify-content: space-between; }
     .section-quotes .section-inner h3 {
       font-weight: 500; }
-    @media (max-width: 767px) {
-      .section-quotes .section-inner {
-        flex-direction: column; } }
   .section-quotes__left, .section-quotes__right {
     width: 45%;
     text-align: center; }
-    @media (max-width: 991px) {
-      .section-quotes__left, .section-quotes__right {
-        width: 100%; } }
   .section-quotes__left {
     margin-bottom: 2rem; }
     .section-quotes__left .text {
@@ -652,11 +646,7 @@ h5 {
         margin-bottom: 1.5rem; } }
 
 .slider-quotes-container {
-  width: 40vw;
   overflow: hidden; }
-  @media (max-width: 991px) {
-    .slider-quotes-container {
-      width: 60vw; } }
 
 .slider-quotes {
   padding: 0;
@@ -670,7 +660,6 @@ h5 {
   .slider-quotes__item {
     position: relative;
     box-sizing: border-box;
-    min-width: 30vw;
     padding: 2.5rem 4.25rem 3.75rem;
     background-color: #fff;
     border: 1px solid #d8e3fe;
